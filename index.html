@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nidesh Financial Services</title>
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+
+    /* Navigation */
+    header { background: #333399; padding: 1rem 2rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    nav a { color: #fff; text-decoration: none; margin-left: 1rem; }
+    nav a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero {
+      background: #f0f0ff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h1 { font-size: 2.5rem; color: #333399; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #333399;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .hero .btn:hover { opacity: 0.9; }
+
+    /* Services */
+    .services { padding: 3rem 2rem; background: #fff; }
+    .services h2 { text-align: center; margin-bottom: 2rem; color: #333399; }
+    .service-list {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .service {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .service h3 { margin-bottom: 1rem; color: #333399; }
+    .service p { font-size: 0.95rem; color: #555; }
+
+    /* Contact */
+    .contact {
+      background: #f9f9ff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .contact h2 { color: #333399; margin-bottom: 1rem; }
+    .contact p { margin-bottom: 0.5rem; }
+    .contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      text-decoration: none;
+      color: #333399;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: #333399;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav { flex-direction: column; }
+      nav a { margin: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/" style="font-size:1.25rem; font-weight:bold;">Nidesh Finance</a>
+      </div>
+      <div class="menu">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Smart Financial Solutions</h1>
+    <p>Demat accounts • Mutual funds • Personalized planning</p>
+    <a href="#contact" class="btn">Get Started</a>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service">
+        <h3>Open Demat Account</h3>
+        <p>Quick, paperless demat account opening with expert guidance.</p>
+      </div>
+      <div class="service">
+        <h3>Mutual Fund Advisory</h3>
+        <p>Curated mutual fund portfolios to match your risk appetite.</p>
+      </div>
+      <div class="service">
+        <h3>Financial Planning</h3>
+        <p>Goal-based planning for education, retirement, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:+919819590598">+91-9819590598</a></p>
+    <p>Email: <a href="mailto:investments.nidesh@outlook.com">
+      investments.nidesh@outlook.com</a></p>
+    <p>
+      <a href="https://wa.me/919819590598" target="_blank">
+        Chat on WhatsApp
+      </a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Nidesh Financial Services. All rights reserved.
+  </footer>
+
+</body>
+</html>
