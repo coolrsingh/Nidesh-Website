@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nidesh Financial Services</title>
+  <meta name="description" content="Open Demat account, get mutual fund advisory, and goal-based financial planning with Nidesh Financial Services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f172a;         /* dark blue background */
+      --card: rgba(255,255,255,0.06);
+      --text: #e2e8f0;       /* light gray */
+      --muted:#94a3b8;       /* slate-400 */
+      --brand:#4f46e5;       /* indigo-600 */
+      --brand-2:#22c55e;     /* green-500 */
+      --accent:#f59e0b;      /* amber-500 */
+      --ring: rgba(79,70,229,.4);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,0.95);border-bottom:1px solid rgba(255,255,255,.1)}
+    .nav-wrap{max-width:1120px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+    .logo{font-weight:700;letter-spacing:.4px;color:#fff}
+    .menu a{margin-left:16px;color:var(--muted)}
+    .menu a:hover{color:#fff}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;background:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+    .hero-overlay{background:rgba(15,23,42,0.85);padding:72px 16px 88px}
+    .hero-wrap{max-width:1120px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+    .hero h1{font-size:42px;line-height:1.15;margin:0 0 12px;color:#fff}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .badges{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 26px}
+    .badge{background:rgba(255,255,255,.08);padding:8px 12px;border-radius:999px;font-size:12px;color:#fff}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;cursor:pointer}
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-primary:hover{filter:brightness(1.06)}
+    .btn-ghost{border-color:rgba(255,255,255,.3);color:#fff}
+
+    .hero-card{align-self:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px;backdrop-filter:blur(8px)}
+    .hero-card h3{margin:0 0 10px;font-size:18px;color:#fff}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .input, select, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff}
+    .input:focus, select:focus, textarea:focus{outline:none;box-shadow:0 0 0 3px var(--ring)}
+    .form-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* SECTIONS */
+    .section{max-width:1120px;margin:0 auto;padding:56px 16px}
+    .section h2{font-size:28px;margin:0 0 8px;color:#fff}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px}
+    .card h3{margin:0 0 8px;color:#fff}
+    .card p{color:#e2e8f0}
+    .card .actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{display:inline-block;background:rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:12px;color:#fff}
+
+    /* REVIEWS */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px}
+    .stars{color:#fbbf24;letter-spacing:1px}
+    .review .name{margin-top:8px;font-weight:600;color:#fff}
+
+    /* FOOTER */
+    footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 16px;color:#94a3b8;text-align:center;background:rgba(15,23,42,0.95)}
+
+    /* FLOATING CTA */
+    .float-cta{position:fixed;inset:auto 12px 12px auto;z-index:60}
+    .float-cta a{background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 10px 30px rgba(37,211,102,.35)}
+
+    /* STICKY BAR (mobile) */
+    .sticky{position:fixed;bottom:0;left:0;right:0;display:none;background:rgba(15,23,42,0.95);border-top:1px solid rgba(255,255,255,.1);padding:10px 12px;z-index:70}
+    .sticky .wrap{max-width:1120px;margin:auto;display:flex;gap:10px}
+    .sticky .wrap a{flex:1;text-align:center}
+
+    /* STICKY TOP CTA for Mobile */
+    .sticky-top{position:fixed;top:0;left:0;right:0;z-index:80;background:#25D366;display:none;justify-content:center;padding:10px}
+    .sticky-top a{color:#fff;font-weight:700;text-decoration:none}
+
+    @media (max-width: 960px){
+      .hero-wrap{grid-template-columns:1fr;padding-top:52px}
+      .grid{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
+      .sticky{display:block}
+      .sticky-top{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-wrap">
+      <div class="logo">Nidesh Financial Services</div>
+      <div class="menu">
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-wrap">
+        <div>
+          <h1>Invest Smart. <span style="color:var(--brand)">Live Better.</span></h1>
+          <p>Open your Demat account in minutes and start building wealth with guidance you can trust.</p>
+          <div class="badges">
+            <span class="badge">Trusted by 100+ clients</span>
+            <span class="badge">SEBI-compliant process</span>
+            <span class="badge">Zero paperwork</span>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Get Free Call Back</a>
+            <a class="btn btn-ghost" href="https://wa.me/919819590598?text=Hi%20Nidesh%2C%20I%20want%20to%20open%20a%20Demat%20account%20%2F%20get%20advisory." target="_blank">Chat on WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Quick Lead Form</h3>
+          <form action="https://formspree.io/f/mayrwnvl" method="POST">
+            <div class="row">
+              <input class="input" name="name" placeholder="Full Name" required>
+              <input class="input" type="tel" name="phone" placeholder="Phone" required>
+            </div>
+            <div class="row">
+              <input class="input" type="email" name="email" placeholder="Email">
+              <select name="service" class="input">
+                <option value="Demat">Open Demat Account</option>
+                <option value="Mutual Fund Advisory">Mutual Fund Advisory</option>
+                <option value="Financial Planning">Financial Planning</option>
+              </select>
+            </div>
+            <textarea class="input" name="message" rows="3" placeholder="Your goal (e.g., start SIP ₹5k, retire by 50, etc.)"></textarea>
+            <input type="hidden" name="source" value="Homepage Hero">
+            <button class="btn btn-primary" type="submit" style="width:100%;margin-top:10px">Request Callback</button>
+            <div class="form-note">Instant notification will be sent when you submit.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2>Everything you need to start & grow wealth</h2>
+    <p class="muted">Clear, jargon-free guidance. Digital onboarding. Human support.</p>
+    <div class="grid" style="margin-top:18px">
+      <div class="card">
+        <img alt="mutual funds" src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px"/>
+        <h3>Mutual Fund Advisory</h3>
+        <p>Handpicked funds for your goals with rebalancing, SIP setup, and simple dashboards. Grow smarter, not riskier.</p>
+        <div class="actions">
+          <span class="chip">Goal-based</span>
+          <span class="chip">Tax-efficient</span>
+          <a class="btn btn-ghost" href="#contact">Talk to an advisor →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img alt="financial planning" src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px"/>
+        <h3>Financial Planning</h3>
+        <p>Retirement, education, and emergency planning with Indian realities in mind. Simple actions, real outcomes.</p>
+        <div class="actions">
+          <span class="chip">Personalized</span>
+          <span class="chip">Transparent</span>
+          <a class="btn btn-ghost" href="#contact">Get a free plan →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img alt="demat" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px"/>
+        <h3>Open Demat Account</h3>
+        <p>Paperless onboarding and quick KYC. Choose the plan that suits your style, we’ll help end-to-end.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://a.aonelink.in/ANGOne/Ee0oQib?utm_source=other&utm_medium=website&utm_campaign=nidesh" target="_blank">iTrade Plan</a>
+          <a class="btn" style="background:var(--accent);color:#fff" href="https://a.aonelink.in/ANGOne/ohkITMb?utm_source=other&utm_medium=website&utm_campaign=nidesh" target="_blank">Pro Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <h2>Loved by investors like you</h2>
+    <p class="muted">Real words from real clients on Google.</p>
+    <div class="reviews" style="margin-top:16px">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Excellent service, relevant market information and mutual fund advisory are some of the things that sets this firm apart.</p>
+        <div class="name">— Siddharth Borade</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Want to Secure your future Must go for Nidesh.. Helped me in my financial Planing and future saving.</p>
+        <div class="name">— Satish Chauhan</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>I wasn't aware about mutual fund... he introduced me to mutual fund and its great. He taught me importance of mutual fund and investment for goal based planning.</p>
+        <div class="name">— Ankush Singh</div>
+      </div>
+    </div>
+    <p style="margin-top:14px"><a href="https://www.google.com/search?q=nidesh+financial+services#mpd=~5920951844524150347/customers/reviews" target="_blank" style="color:var(--brand)">See all Google reviews →</a></p>
+  </section>
+
+  <!-- CONTACT / FORM -->
+  <section id="contact" class="section">
+    <h2>Get a free 10-min consultation</h2>
+    <p class="muted">Tell us your goal. We’ll reply on WhatsApp within a few hours.</p>
+    <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px">
+      <div class="card">
+        <form action="https://formspree.io/f/mayrwnvl" method="POST">
+          <input class="input" name="name" placeholder="Full Name" required>
+          <input class="input" type="tel" name="phone" placeholder="Phone (WhatsApp preferred)" required>
+          <input class="input" type="email" name="email" placeholder="Email">
+          <select name="service" class="input">
+            <option value="Demat">Open Demat Account</option>
+            <option value="Mutual Fund Advisory">Mutual Fund Advisory</option>
+            <option value="Financial Planning">Financial Planning</option>
+          </select>
+          <textarea class="input" name="message" rows="4" placeholder="Your message"></textarea>
+          <input type="hidden" name="source" value="Homepage Contact">
+          <button class="btn btn-primary" type="submit" style="width:100%;margin-top:10px">Request Callback</button>
+          <div class="form-note">By submitting, you agree to be contacted about this inquiry. Instant notification will be sent.</div>
+        </form>
+      </div>
+      <div class="card">
